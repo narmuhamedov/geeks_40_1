@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+
+<center>
+<div class="card" style="width: 18rem;">
+  <img src="{{ post_id.image.url }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">{{ post_id.title }}</p>
+    <p class="card-text">{{ post_id.description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+{% if post_id.music %}
+    {% if post_id.music.url %}
+        <audio controls>
+            <source src="{{ post_id.music.url }}" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    {% else %}
+        <p>Error: The 'music' attribute has no file associated with it.</p>
+    {% endif %}
+{% endif %}</li>
+    <li class="list-group-item"><iframe src="{{ post_id.video }}" frameborder="0"></iframe></li>
+    <li class="list-group-item"><p>{{ post_id.category_news }}</p></li>
+    <li class="list-group-item"><p>{{ post_id.time_news }}</p></li>
+    <li class="list-group-item"><p>{{ post_id.author }}</p></li>
+  </ul>
+</div>
+</center>
+
+
+{% include 'footer.html' %}

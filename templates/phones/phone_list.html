@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Список телефонов</h1>
+<ul>
+    {% for i in phones %}
+        <h2>{{ i.title }}</h2>
+        <a href="/phone_list/{{ i.id }}/">Подробнее</a>
+    {% endfor %}
+</ul>
+</body>
+</html>
