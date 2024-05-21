@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/create_phone.css' %}">
+</head>
+<body>
+
+<form action="/create_phone/" method="POST" class="ui-form">
+<h3>Добавить телефон</h3>
+<div class="form-row">
+ {% csrf_token %}
+    {{ form.as_p }}
+</div>
+<p><input type="submit" value="Добавить"></p>
+</form>
+
+</body>
+</html>

@@ -5,10 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<button><a href="/phone_list/{{ phone_id.id }}/delete/">Удалить</a></button>
+<button><a href="/phone_list/{{ phone_id.id }}/update/">Редактировать</a></button>
+<br>
 <h1>{{ phone_id.title }}</h1>
 <p>{{ phone_id.price }}</p>
 <h2>Отзывы</h2>
+
 <table border="2">
     <tr>
         <td>Оценка</td> <td>Отзыв</td> <td>Дата отзыва</td>
@@ -19,5 +22,6 @@
     </tr>
     {% endfor %}
 </table>
+
 </body>
 </html>
