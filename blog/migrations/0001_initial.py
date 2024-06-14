@@ -7,22 +7,59 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='PostNews',
+            name="PostNews",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, verbose_name='Напишите название новости')),
-                ('image', models.ImageField(blank=True, upload_to='images/', verbose_name='Загрузите фото')),
-                ('description', models.TextField(verbose_name='Напишите новость')),
-                ('music', models.FileField(blank=True, upload_to='audio/', verbose_name='Загрузите песню')),
-                ('video', models.URLField(verbose_name='Укажите видео ссылку')),
-                ('category_news', models.CharField(choices=[('Спорт', 'Спорт'), ('Бизнес', 'Бизнес'), ('Шоу бизнес', 'Шоу бизнес'), ('Мир', 'Мир')], max_length=100, verbose_name='Выберите категорию')),
-                ('time_news', models.PositiveIntegerField(verbose_name='Укажите время новости')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=100, verbose_name="Напишите название новости"
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, upload_to="images/", verbose_name="Загрузите фото"
+                    ),
+                ),
+                ("description", models.TextField(verbose_name="Напишите новость")),
+                (
+                    "music",
+                    models.FileField(
+                        blank=True, upload_to="audio/", verbose_name="Загрузите песню"
+                    ),
+                ),
+                ("video", models.URLField(verbose_name="Укажите видео ссылку")),
+                (
+                    "category_news",
+                    models.CharField(
+                        choices=[
+                            ("Спорт", "Спорт"),
+                            ("Бизнес", "Бизнес"),
+                            ("Шоу бизнес", "Шоу бизнес"),
+                            ("Мир", "Мир"),
+                        ],
+                        max_length=100,
+                        verbose_name="Выберите категорию",
+                    ),
+                ),
+                (
+                    "time_news",
+                    models.PositiveIntegerField(verbose_name="Укажите время новости"),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

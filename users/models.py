@@ -6,12 +6,11 @@ from django.db import models
 
 
 class CustomUser(User):
-    GENDER = (
-        ('Male', 'Male'),
-        ('Female', 'Female')
-    )
+    GENDER = (("Male", "Male"), ("Female", "Female"))
     phone_number = models.CharField(max_length=14, default="+996")
-    age = models.PositiveIntegerField(default=18, validators=[MinValueValidator(5), MaxValueValidator(99)])
+    age = models.PositiveIntegerField(
+        default=18, validators=[MinValueValidator(5), MaxValueValidator(99)]
+    )
     gender = models.CharField(max_length=100, choices=GENDER)
     club = models.CharField(max_length=100, default="Клуб не определен")
 
@@ -23,13 +22,13 @@ def set_club(sender, instance, created, **kwargs):
         print("Сигнал обработан пользователь создан")
         age = instance.age
         if age < 5:
-            instance.club = 'Детский'
+            instance.club = "Детский"
         elif age >= 5 and age <= 10:
-            instance.club = 'Детский'
+            instance.club = "Детский"
         elif age >= 11 and age <= 18:
-            instance.club = 'Подростковый'
+            instance.club = "Подростковый"
         elif age >= 18 and age <= 45:
-            instance.club = 'Взрослый'
+            instance.club = "Взрослый"
         else:
-            instance.club = 'Клуб не определен'
+            instance.club = "Клуб не определен"
         instance.save()

@@ -4,17 +4,19 @@ from django.http import HttpResponseBadRequest
 
 class AgeClubMiddleware(MiddlewareMixin):
     def process_request(self, request):
-        if request.path == '/register/' and request.method == 'POST':
-            age = int(request.POST.get('age'))
+        if request.path == "/register/" and request.method == "POST":
+            age = int(request.POST.get("age"))
             if age < 5:
-                return HttpResponseBadRequest('Ваш возраст слишком мал для регистрации')
+                return HttpResponseBadRequest("Ваш возраст слишком мал для регистрации")
             elif age >= 5 and age <= 10:
-                request.club = 'Детский'
-            elif age >=11 and age <= 18:
-                request.club = 'Подростковый'
+                request.club = "Детский"
+            elif age >= 11 and age <= 18:
+                request.club = "Подростковый"
             elif age >= 18 and age <= 45:
-                request.club = 'Взрослый'
+                request.club = "Взрослый"
             else:
-                return HttpResponseBadRequest('Извините вы не подходите для регистрации')
-        elif request.path == '/register/' and request.method == 'GET':
-            setattr(request, 'club', 'Клуб не определен')
+                return HttpResponseBadRequest(
+                    "Извините вы не подходите для регистрации"
+                )
+        elif request.path == "/register/" and request.method == "GET":
+            setattr(request, "club", "Клуб не определен")

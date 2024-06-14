@@ -15,4 +15,14 @@
     <br>
 {% endfor %}
 
+
+<ul>
+    {% for i in video_content %}
+    <li>
+    <h3>{{ i.title }}</h3>
+        <iframe src="{{ i.url_video }}" frameborder="0"></iframe>
+    </li>
+    {% endfor %}
+</ul>
+
 {% include 'footer.html' %}

@@ -6,18 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('blog', '0001_initial'),
+        ("blog", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='postnews',
-            name='author',
-            field=models.CharField(max_length=100, null=True, verbose_name='Укажите автора'),
+            model_name="postnews",
+            name="author",
+            field=models.CharField(
+                max_length=100, null=True, verbose_name="Укажите автора"
+            ),
         ),
         migrations.AlterField(
-            model_name='postnews',
-            name='title',
-            field=models.CharField(max_length=50, null=True, verbose_name='Напишите название новости'),
+            model_name="postnews",
+            name="title",
+            field=models.CharField(
+                max_length=50, null=True, verbose_name="Напишите название новости"
+            ),
         ),
     ]
